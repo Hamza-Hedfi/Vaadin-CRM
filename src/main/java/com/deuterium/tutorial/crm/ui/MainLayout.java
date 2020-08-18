@@ -12,7 +12,17 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
+import com.vaadin.flow.server.PWA;
 
+@PWA(
+        name = "Vaadin CRM",
+        shortName = "CRM",
+        offlineResources = {
+                "./styles/offline.css",
+                "./images/offline.png"
+        },
+        enableInstallPrompt = false
+)
 @CssImport("./styles/shared-styles.css")
 public class MainLayout extends AppLayout {
 
@@ -27,7 +37,7 @@ public class MainLayout extends AppLayout {
         addToDrawer(new VerticalLayout(
                 listLink,
                 new RouterLink("Dashboard", DashboardView.class)
-                ));
+        ));
 
     }
 
