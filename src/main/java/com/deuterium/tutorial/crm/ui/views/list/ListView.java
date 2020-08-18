@@ -15,15 +15,17 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("Contacts | Vaadin CRM")
 public class ListView extends VerticalLayout {
 
-    private final ContactForm form;
+    ContactForm form;
     Grid<Contact> grid = new Grid<>(Contact.class);
     TextField filterText = new TextField();
-    private ContactService contactService;
+    ContactService contactService;
 
     public ListView(@Autowired ContactService contactService,
                     CompanyService companyService) {
